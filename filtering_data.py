@@ -79,12 +79,21 @@ def run():
     adult_people = list(filter(lambda worker: worker['age'] > 18 , DATA))
     adult_people = list(map(lambda worker: worker['name'] , adult_people))
     print(adult_people)
+    print('LAMBDAGUNCS')    
+    adult_people = list(filter(lambda worker: worker['age'] > 18 , DATA))
+    adult_people = list(map(lambda worker: {'name': worker['name'],'age': worker['age'] }, adult_people))
+    print(adult_people)
     adult_people = [pearson['name'] for pearson in DATA if pearson['age'] > 18]
+    print(adult_people)
+    print('LISTCOMP')    
+    adult_people = [{'name': pearson['name'] , 'age':pearson['age']} for pearson in DATA if pearson['age'] > 18]
     print(adult_people)
     # SOLO FUNCIONA N PYTHON3.9 O POSTERIOR
     # old_people = list(map(lambda worker: worker | {'old': worker['age'] > 60 } , DATA))c
     old_people = list(filter(lambda worker: worker['age'] > 60 , DATA))
     old_people = list(map(lambda worker: worker['name'] , old_people))
+    print(old_people)
+    old_people = [{pearson['name'] , pearson['age']} for pearson in DATA if pearson['age'] > 70]
     print(old_people)
     old_people = [pearson['name'] for pearson in DATA if pearson['age'] > 70]
     print(old_people)
